@@ -12,6 +12,8 @@ namespace DIO.Jogos
         private string Idioma {get; set;}
         private int Ano_Lancamento { get; set; }
 
+        private bool Excluido {get; set; }
+
         public Jogos(int id, string titulo, string Distribuidora, string Plataforma, string Descricao, string Idioma, int Ano_Lancamento)
         {
             this.Id = id;
@@ -22,6 +24,8 @@ namespace DIO.Jogos
             this.Genero = Genero;
             this.Idioma = Idioma;
             this.Ano_Lancamento = Ano_Lancamento;
+            this.Excluido = false;
+
         }
 
         public override string ToString()
@@ -46,6 +50,10 @@ namespace DIO.Jogos
         internal int retornaId()
         { 
             return this.Id;
+        }
+        public void Excluir() 
+        { 
+            this.Excluido = true;
         }
     }
 }
