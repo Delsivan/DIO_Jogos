@@ -7,7 +7,6 @@ namespace DIO.Jogos
     {
         static void Main(string[] args)
         {
-            Jogos jogos = new Jogos();
             
             Console.WriteLine("Hello World!");
         }
