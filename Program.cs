@@ -27,7 +27,7 @@ namespace DIO.Jogos
                         ExcluirJogo();
                         break;
                      case "5":
-                        //VisualizarJogo();
+                        VisualizarJogo();
                         break;
                      case "C":
                         Console.Clear();
@@ -42,6 +42,15 @@ namespace DIO.Jogos
             Console.ReadLine();
 
         }
+         private static void VisualizarJogo()
+		{
+			Console.Write("Digite o id da jogo: ");
+			int indiceJogo = int.Parse(Console.ReadLine());
+
+			var jogo = repositorio.RetornaPorId(indiceJogo);
+
+			Console.WriteLine(jogo);
+		}
         private static void ExcluirJogo()
 		{
 			Console.Write("Digite o id da jogo: ");
