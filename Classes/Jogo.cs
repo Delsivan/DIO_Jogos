@@ -35,6 +35,7 @@ namespace DIO.Jogos
             retorno += "Gênero: " + this.Genero + Environment.NewLine;
             retorno += "Idioma: " + this.Idioma + Environment.NewLine;
             retorno += "Ano de lançamento: " + this.Ano_Lancamento + Environment.NewLine;
+            //retorno += "Excluido: " + this.Excluido;
 
             return retorno;
         }

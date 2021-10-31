@@ -21,7 +21,7 @@ namespace DIO.Jogos
                         InserirJogo();
                         break;
                      case "3":
-                        //AtualizarJogo();
+                        AtualizarJogo();
                         break;
                      case "4":
                         //ExcluirJogo();
@@ -42,6 +42,46 @@ namespace DIO.Jogos
             Console.ReadLine();
 
         }
+        private static void AtualizarJogo()
+		{
+			Console.Write("Digite o id do jogo: ");
+			int indiceJogo = int.Parse(Console.ReadLine());
+
+			// https://docs.microsoft.com/pt-br/dotnet/api/system.enum.getvalues?view=netcore-3.1
+			// https://docs.microsoft.com/pt-br/dotnet/api/system.enum.getname?view=netcore-3.1
+			foreach (int i in Enum.GetValues(typeof(Genero)))
+			{
+				Console.WriteLine("{0}-{1}", i, Enum.GetName(typeof(Genero), i));
+			}
+			Console.WriteLine("Digite o nome do jogo: ");
+            string entradaTitulo = Console.ReadLine();
+
+            Console.WriteLine("Digite a plataforma do jogo: ");
+            string entradaPlataforma = Console.ReadLine();
+
+            Console.WriteLine("Digite a Descrição do jogo: ");
+            string entradaDescricao = Console.ReadLine();
+
+            Console.WriteLine("Digite o genêro entre as opções acima: ");
+            int entradaGenero = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Informe o idioma do jogo: ");
+            string entradaIdioma = Console.ReadLine();
+
+            Console.WriteLine("Digite o Ano de criação do jogo: ");
+            int entradaAno_Lancamento = int.Parse(Console.ReadLine());
+
+            Jogo atualizaJogo = new Jogo(id: indiceJogo, 
+                                       titulo: entradaTitulo,
+                                       plataforma: entradaPlataforma,
+                                       descricao: entradaDescricao,
+                                       genero: (Genero)entradaGenero,
+                                       idioma: entradaIdioma,
+                                       ano_Lancamento: entradaAno_Lancamento);
+
+			repositorio.Atualiza(indiceJogo, atualizaJogo);
+		}
+
 
         private static void ListarJogos()
         {
@@ -65,6 +105,8 @@ namespace DIO.Jogos
         {
             Console.WriteLine("Inserir Jogo");
 
+            // https://docs.microsoft.com/pt-br/dotnet/api/system.enum.getvalues?view=netcore-3.1
+			// https://docs.microsoft.com/pt-br/dotnet/api/system.enum.getname?view=netcore-3.1
             foreach (int i in Enum.GetValues(typeof(Genero)))
             {
                 Console.WriteLine("{0}-{1}", i, Enum.GetName(typeof(Genero), i));
