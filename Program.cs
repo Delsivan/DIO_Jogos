@@ -24,7 +24,7 @@ namespace DIO.Jogos
                         AtualizarJogo();
                         break;
                      case "4":
-                        //ExcluirJogo();
+                        ExcluirJogo();
                         break;
                      case "5":
                         //VisualizarJogo();
@@ -42,6 +42,13 @@ namespace DIO.Jogos
             Console.ReadLine();
 
         }
+        private static void ExcluirJogo()
+		{
+			Console.Write("Digite o id da jogo: ");
+			int indiceJogo = int.Parse(Console.ReadLine());
+
+			repositorio.Exclui(indiceJogo);
+		}
         private static void AtualizarJogo()
 		{
 			Console.Write("Digite o id do jogo: ");
@@ -97,7 +104,8 @@ namespace DIO.Jogos
 
             foreach (var jogo in lista)
             {
-                Console.WriteLine("#ID {0}: - {1}", jogo.retornaId(), jogo.retornaTitulo());
+                var excluido = jogo.retornaExcluido();
+                Console.WriteLine("#ID {0}: - {1} {2}", jogo.retornaId(), jogo.retornaTitulo(), (excluido ? "*Excluído*" : ""));
             }
         }
 
