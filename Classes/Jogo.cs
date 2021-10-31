@@ -2,10 +2,9 @@ using System;
 
 namespace DIO.Jogos
 {
-    public class Jogos : EntidadeBase
+    public class Jogo : EntidadeBase
     {
         private string Titulo { get; set; }
-        private string Distribuidora {get; set;}
         private string Plataforma {get; set; }
         private string Descricao { get; set; }
         private Genero Genero { get; set; }
@@ -14,16 +13,15 @@ namespace DIO.Jogos
 
         private bool Excluido {get; set; }
 
-        public Jogos(int id, string titulo, string Distribuidora, string Plataforma, string Descricao, string Idioma, int Ano_Lancamento)
+        public Jogo(int id, string titulo, string plataforma, string descricao,Genero genero, string idioma, int ano_Lancamento)
         {
             this.Id = id;
             this.Titulo = titulo;
-            this.Distribuidora = Distribuidora;
-            this.Plataforma = Plataforma;
-            this.Descricao = Descricao;
-            this.Genero = Genero;
-            this.Idioma = Idioma;
-            this.Ano_Lancamento = Ano_Lancamento;
+            this.Plataforma = plataforma;
+            this.Descricao = descricao;
+            this.Genero = genero;
+            this.Idioma = idioma;
+            this.Ano_Lancamento = ano_Lancamento;
             this.Excluido = false;
 
         }
@@ -32,7 +30,6 @@ namespace DIO.Jogos
         { 
             string retorno = "";
             retorno += "Título: " + this.Titulo + Environment.NewLine;
-            retorno += "Distribuidora: " + this.Distribuidora + Environment.NewLine;
             retorno += "Plataforma: " + this.Plataforma + Environment.NewLine;
             retorno += "Descrição: " + this.Descricao + Environment.NewLine;
             retorno += "Gênero: " + this.Genero + Environment.NewLine;
